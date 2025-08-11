@@ -1,0 +1,79 @@
+<div class="formulario-container">
+  <h2 class="formulario-title">Enviar Mensaje</h2>
+  
+  <!-- Mensajes de estado -->
+  <div *ngIf="showSuccess" class="alert alert-success">
+    ✓ Mensaje enviado exitosamente. ¡Gracias por tu mensaje!
+  </div>
+  
+  <div *ngIf="errorMessage" class="alert alert-error">
+    ✗ {{ errorMessage }}
+    <button type="button" class="alert-close" (click)="clearMessages()">×</button>
+  </div>
+  
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="formulario-form">
+    <div class="form-group">
+      <label for="nombre" class="form-label">Nombre:</label>
+      <input 
+        id="nombre" 
+        formControlName="nombre" 
+        required 
+        class="form-input"
+        placeholder="Ingresa tu nombre completo"
+        [disabled]="isLoading"
+      />
+      <div *ngIf="formulario.get('nombre')?.invalid && formulario.get('nombre')?.touched" class="error-message">
+        El nombre es requerido
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="email" class="form-label">Email:</label>
+      <input 
+        id="email" 
+        formControlName="email" 
+        type="email"
+        required 
+        class="form-input"
+        placeholder="tucorreo@ejemplo.com"
+        [disabled]="isLoading"
+      />
+      <div *ngIf="formulario.get('email')?.invalid && formulario.get('email')?.touched" class="error-message">
+        <span *ngIf="formulario.get('email')?.errors?.['required']">El email es requerido</span>
+        <span *ngIf="formulario.get('email')?.errors?.['email']">El formato del email no es válido</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="mensaje" class="form-label">Mensaje:</label>
+      <textarea 
+        id="mensaje" 
+        formControlName="mensaje" 
+        required 
+        class="form-textarea"
+        placeholder="Escribe tu mensaje aquí..."
+        rows="5"
+        [disabled]="isLoading"
+      ></textarea>
+      <div *ngIf="formulario.get('mensaje')?.invalid && formulario.get('mensaje')?.touched" class="error-message">
+        El mensaje es requerido
+      </div>
+    </div>
+    
+    <button 
+      type="submit" 
+      [disabled]="formulario.invalid || isLoading" 
+      class="form-button"
+      [class.disabled]="formulario.invalid || isLoading"
+      [class.loading]="isLoading"
+    >
+      <span *ngIf="!isLoading">Enviar Mensaje</span>
+      <span *ngIf="isLoading" class="loading-content">
+        <span class="spinner"></span>
+        Enviando...
+      </span>
+    </button>
+  </form>
+</div>
+
+

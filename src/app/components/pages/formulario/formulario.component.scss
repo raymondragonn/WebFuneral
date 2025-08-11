@@ -1,0 +1,300 @@
+// Contenedor principal del formulario
+.formulario-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e5e5;
+}
+
+// Título del formulario
+.formulario-title {
+  text-align: center;
+  color: #1a1a1a;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+}
+
+// Alertas de estado
+.alert {
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideInDown 0.4s ease-out;
+
+  &.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+
+  &.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+}
+
+.alert-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 1rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Mensajes de error de validación
+.error-message {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-in;
+}
+
+// Formulario
+.formulario-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+// Grupo de campos
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+// Etiquetas
+.form-label {
+  color: #2d2d2d;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.3px;
+}
+
+// Inputs y textarea base
+.form-input,
+.form-textarea {
+  padding: 0.875rem 1.125rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: #333333;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+  outline: none;
+
+  &::placeholder {
+    color: #999999;
+    font-style: italic;
+  }
+
+  &:focus {
+    border-color: #333333;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1);
+    transform: translateY(-1px);
+  }
+
+  &:hover:not(:disabled) {
+    border-color: #666666;
+    background-color: #ffffff;
+  }
+
+  &:disabled {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+
+  // Estados de validación
+  &.ng-invalid.ng-touched {
+    border-color: #dc3545;
+    background-color: #fef8f8;
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+    }
+  }
+
+  &.ng-valid.ng-touched {
+    border-color: #28a745;
+    background-color: #f8fff9;
+  }
+}
+
+// Textarea específico
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+  font-family: inherit;
+}
+
+// Botón de envío
+.form-button {
+  padding: 1rem 2rem;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  
+  &:hover:not(.disabled):not(.loading) {
+    background-color: #333333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active:not(.disabled):not(.loading) {
+    transform: translateY(0);
+  }
+
+  &.disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &.loading {
+    background-color: #666666;
+    cursor: wait;
+  }
+}
+
+// Contenido del botón de carga
+.loading-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+// Spinner de carga
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ffffff40;
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .formulario-container {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .formulario-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 0.75rem 1rem;
+  }
+
+  .form-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .alert {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+// Animaciones
+.formulario-container {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Efectos adicionales para mejor UX
+.form-group {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #1a1a1a, #666666);
+    transition: width 0.3s ease;
+    border-radius: 1px;
+  }
+  
+  &:focus-within::before {
+    width: 100%;
+  }
+}
