@@ -1,15 +1,73 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { MensajeService } from 'src/app/services';
 
 @Component({
     selector: 'app-app-feedback',
     templateUrl: './app-feedback.component.html',
     styleUrls: ['./app-feedback.component.scss']
 })
-export class AppFeedbackComponent implements OnInit {
+export class AppFeedbackComponent implements OnInit, AfterViewInit {
 
-    constructor() { }
+    constructor(private servicioMensajes: MensajeService) { }
 
     ngOnInit(): void {
+        this.servicioMensajes.obtenerMensajes().subscribe( data => {
+            console.log(data);
+            this.singleFeedbackItem = data.slice(0, 4).map((item: any) => ({
+                mensaje: item.mensaje,
+                nombre: item.nombre
+            }));
+            
+            // Reinicializar el carrusel después de cargar los datos
+            setTimeout(() => {
+                this.initializeCarousel();
+            }, 100);
+        })
+    }
+
+    ngAfterViewInit(): void {
+        // Inicializar el carrusel cuando la vista esté lista
+        this.initializeCarousel();
+    }
+
+    private initializeCarousel(): void {
+        // Verificar que jQuery y Owl Carousel estén disponibles
+        if (typeof (window as any).$ === 'undefined') {
+            console.error('jQuery no está disponible');
+            return;
+        }
+
+        // Destruir el carrusel existente si existe
+        const carousel = (window as any).$('.feedback-slides');
+        if (carousel.length === 0) {
+            console.error('Elemento .feedback-slides no encontrado');
+            return;
+        }
+
+        if (carousel.hasClass('owl-loaded')) {
+            carousel.trigger('destroy.owl.carousel');
+        }
+        
+        // Inicializar el nuevo carrusel
+        carousel.owlCarousel({
+            loop: true,
+            margin: 30,
+            nav: true,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1024: {
+                    items: 3
+                }
+            }
+        });
     }
 
     sectionTitle: sectionTitleContent[] = [
@@ -19,30 +77,7 @@ export class AppFeedbackComponent implements OnInit {
         }
     ]
     singleFeedbackItem: Content[] = [
-        {
-            feedbackText: 'Recuerdo cuando Jaime me enseñó a pescar en el río. Era paciente y siempre tenía una sonrisa en su rostro. Esos momentos de tranquilidad junto al agua los atesoro en mi corazón para siempre.',
-            userName: 'María Elena'
-        },
-        {
-            feedbackText: 'Jaime era el mejor cocinero que conocí. Sus tamales eran legendarios en toda la familia. Cada Navidad esperábamos con ansias sus deliciosos platillos y las historias que contaba mientras cocinaba.',
-            userName: 'Carlos Mendoza'
-        },
-        {
-            feedbackText: 'Mi abuelo Jaime me llevaba al parque todos los domingos. Me enseñó a jugar ajedrez y siempre me decía que la vida era como el juego: hay que pensar bien cada movimiento. Lo extraño mucho.',
-            userName: 'Ana Sofía'
-        },
-        {
-            feedbackText: 'Jaime era mi vecino por más de 20 años. Siempre estaba dispuesto a ayudar, ya fuera arreglando una llave que goteaba o simplemente compartiendo una taza de café. Su bondad no tenía límites.',
-            userName: 'Roberto Jiménez'
-        },
-        {
-            feedbackText: 'Mi papá Jaime era mi héroe. Trabajaba duro para darnos todo lo que necesitábamos. Recuerdo cuando me enseñó a andar en bicicleta, corriendo detrás de mí hasta que pude mantener el equilibrio.',
-            userName: 'Luis Fernando'
-        },
-        {
-            feedbackText: 'Jaime era el alma de nuestras reuniones familiares. Su risa contagiosa llenaba la casa de alegría. Siempre tenía un chiste nuevo para contarnos y nos hacía reír hasta llorar.',
-            userName: 'Carmen Rosa'
-        }
+        
     ]
 
 }
@@ -51,6 +86,6 @@ class sectionTitleContent {
     paragraphText : string;
 }
 class Content {
-    feedbackText : string;
-    userName : string;
+    mensaje : string;
+    nombre : string;
 }

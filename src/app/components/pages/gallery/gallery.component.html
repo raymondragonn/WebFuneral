@@ -1,1 +1,101 @@
-<p>gallery works!</p>
+<section class="gallery-section">
+  <div class="container">
+    <!-- Header Section -->
+    <div class="gallery-header">
+      <h2 class="gallery-title">Nuestra Galería</h2>
+      <p class="gallery-subtitle">Espacios diseñados para brindar paz y tranquilidad en momentos difíciles</p>
+      <div class="title-divider"></div>
+    </div>
+
+    <!-- Filter Categories -->
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+      <div 
+        *ngFor="let item of filteredImages" 
+        class="gallery-item"
+        [class.video-item]="item.type === 'video'"
+        (click)="openModal(item)">
+        <div class="image-container">
+          <img [src]="item.src" [alt]="item.alt" loading="lazy">
+          <div class="image-overlay">
+            <div class="overlay-content">
+              <h4>{{ item.title }}</h4>
+              <i class="las" [class.la-play]="item.type === 'video'" [class.la-search-plus]="item.type === 'image'"></i>
+            </div>
+          </div>
+          <!-- Video Indicator -->
+          <div class="video-indicator" *ngIf="item.type === 'video'">
+            <i class="las la-play"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- <div class="modal-overlay" *ngIf="selectedImage || selectedVideo" (click)="closeModal()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <button class="modal-close" (click)="closeModal()">
+          <i class="las la-times"></i>
+        </button>
+        
+        
+        <img *ngIf="selectedImage" [src]="selectedImage" alt="Imagen ampliada">
+        
+       
+        <div *ngIf="selectedVideo" class="video-container">
+          <iframe 
+            [src]="getSafeVideoUrl(selectedVideo)" 
+            frameborder="0" 
+            allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+          </iframe>
+        </div>
+      </div>
+    </div> -->
+    <!-- Modal for images -->
+
+
+    <div *ngIf="selectedImage" class="modal" (click)="closeModal()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <img [src]="selectedImage" [alt]="getCurrentImageTitle()" class="modal-image">
+        
+        <!-- Close button -->
+        <button class="close-btn" (click)="closeModal()">&times;</button>
+        
+        <!-- Navigation arrows -->
+        <button 
+          class="nav-arrow prev" 
+          (click)="previousImage()" 
+          [disabled]="currentImageIndex === 0">
+          &#8249;
+        </button>
+        
+        <button 
+          class="nav-arrow next" 
+          (click)="nextImage()" 
+          [disabled]="currentImageIndex === imageItems.length - 1">
+          &#8250;
+        </button>
+      </div>
+    </div>
+<!-- Modal for videos -->
+<div *ngIf="selectedVideo" class="modal" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    
+    <!-- Video MP4 local -->
+    <video 
+      class="modal-video" 
+      controls 
+      preload="metadata">
+      <source [src]="selectedVideo" type="video/mp4">
+      <source [src]="selectedVideo" type="video/webm">
+      <source [src]="selectedVideo" type="video/ogg">
+      Tu navegador no soporta el elemento de video.
+    </video>
+    
+    <button class="close-btn" (click)="closeModal()">&times;</button>
+  </div>
+</div>
+  </div>
+</section>

@@ -59,6 +59,7 @@ import { ProductsFeedbackComponent } from './components/pages/products-landing/p
 import { ProductsFaqComponent } from './components/pages/products-landing/products-faq/products-faq.component';
 import { ProductsGalleryComponent } from './components/pages/products-landing/products-gallery/products-gallery.component';
 import { OtherProductsComponent } from './components/pages/products-landing/other-products/other-products.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -122,7 +123,10 @@ import { OtherProductsComponent } from './components/pages/products-landing/othe
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserModule, 
+    AppRoutingModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
