@@ -28,6 +28,8 @@
     }
     p {
         color: var(--blackColor);
+        font-style: italic;
+        line-height: 1.8;
     }
     .icon {
         position: absolute;
@@ -52,27 +54,26 @@
             left: 25px;
         };
         padding: {
-            left: 60px;
+            left: 25px;
             top: 6px;
         };
-        img {
-            left: 0;
-            top: 50%;
-            border-radius: 50%;
-            position: absolute;
-            width: 45px !important;
-            height: 45px;
-            display: inline-block !important;
-            transform: translateY(-50%);
-            transition: var(--transition);
-        }
         h3 {
             margin-bottom: 4px;
-            font-size: 18px;
-        }
-        span {
-            display: block;
-            color: var(--optionalColor);
+            font-size: 22px;
+            color: var(--blackColor);
+            font-weight: 600;
+            position: relative;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: var(--optionalColor);
+                border-radius: 1px;
+            }
         }
     }
 }
@@ -82,7 +83,7 @@
 
     .single-feedback-item {
         .feedback-desc {
-            padding-block: {
+            padding: {
                 left: 15px;
                 right: 15px;
                 bottom: 20px;
@@ -91,7 +92,7 @@
         }
         .client-info {
             h3 {
-                font-size: 16px;
+                font-size: 20px;
             }
         }
     }

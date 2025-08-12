@@ -12,6 +12,7 @@ import { AppBannerComponent } from './components/pages/app-landing/app-banner/ap
 import { AppFeaturesComponent } from './components/pages/app-landing/app-features/app-features.component';
 import { AppAboutComponent } from './components/pages/app-landing/app-about/app-about.component';
 import { AppFunfactsComponent } from './components/pages/app-landing/app-funfacts/app-funfacts.component';
+import { AppBannerDividerComponent } from './components/pages/app-landing/app-banner-divider/app-banner-divider.component';
 import { AppScreenshotsComponent } from './components/pages/app-landing/app-screenshots/app-screenshots.component';
 import { AppPricingComponent } from './components/pages/app-landing/app-pricing/app-pricing.component';
 import { AppNewsletterComponent } from './components/pages/app-landing/app-newsletter/app-newsletter.component';
@@ -70,6 +71,7 @@ import { OtherProductsComponent } from './components/pages/products-landing/othe
     AppFeaturesComponent,
     AppAboutComponent,
     AppFunfactsComponent,
+    AppBannerDividerComponent,
     AppScreenshotsComponent,
     AppPricingComponent,
     AppNewsletterComponent,

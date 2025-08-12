@@ -1,0 +1,59 @@
+.banner-divider-area {
+    position: relative;
+    z-index: 1;
+    min-height: 400px;
+    background: {
+        image: url(../../../../../assets/img/person/banner-two.svg);
+        position: center center;
+        size: cover;
+        repeat: no-repeat;
+    };
+    &::before {
+        left: 0;
+        right: 0;
+        top: 0;
+        content: "";
+        height: 100%;
+        width: 100%;
+        opacity: .50;
+        z-index: -1;
+        position: absolute;
+        background-color: #000000;
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+    .banner-divider-area {
+        min-height: 300px;
+        padding: {
+            top: 80px;
+            bottom: 60px;
+        }
+    }
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .banner-divider-area {
+        min-height: 350px;
+        padding: {
+            top: 100px;
+            bottom: 80px;
+        }
+    }
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .banner-divider-area {
+        min-height: 400px;
+        padding: {
+            top: 120px;
+            bottom: 100px;
+        }
+    }
+}
