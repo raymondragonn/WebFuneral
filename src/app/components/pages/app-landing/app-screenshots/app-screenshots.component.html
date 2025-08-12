@@ -7,7 +7,7 @@
 
         <div class="screenshot-slider owl-carousel owl-theme">
             <div class="screenshot-item" *ngFor="let Image of screenshotImage;">
-                <div class="image">
+                <div class="image" (click)="goToGallery()">
                     <img [src]="Image.img" alt="image">
                 </div>
             </div>

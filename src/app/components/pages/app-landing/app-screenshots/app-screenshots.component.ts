@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-app-screenshots',
@@ -7,35 +8,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppScreenshotsComponent implements OnInit {
 
-    constructor() { }
+    constructor(private router: Router) { }
 
     ngOnInit(): void {
     }
 
+    goToGallery(): void {
+        this.router.navigate(['/galeria']);
+    }
+
     sectionTitle: sectionTitleContent[] = [
         {
-            title: 'App Screenshots',
-            paragraphText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+            title: 'Momentos especiales',
+            paragraphText: 'Recuerdos y momentos especiales que vivirán siempre en nuestra memoria.'
         }
     ]
     screenshotImage: Image[] = [
         {
-            img: 'assets/img/screenshot/1.png'
+            img: 'assets/img/person/photo-gallery4.svg'
         },
         {
-            img: 'assets/img/screenshot/2.png'
+            img: 'assets/img/person/photo-gallery1.svg'
         },
         {
-            img: 'assets/img/screenshot/3.png'
+            img: 'assets/img/person/photo-gallery2.svg'
         },
         {
-            img: 'assets/img/screenshot/4.png'
+            img: 'assets/img/person/photo-gallery3.svg'
         },
         {
-            img: 'assets/img/screenshot/5.png'
+            img: 'assets/img/person/photo-gallery5.svg'
         },
         {
-            img: 'assets/img/screenshot/6.png'
+            img: 'assets/img/person/photo-gallery6.svg'
         }
     ]
 
