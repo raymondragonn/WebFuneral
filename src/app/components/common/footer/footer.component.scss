@@ -1,5 +1,5 @@
 .footer {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    background: var(--blackColor);
     color: var(--whiteColor);
     position: relative;
     overflow: hidden;
@@ -33,8 +33,8 @@
 
 .footer-main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
     margin-bottom: 20px;
 }
 
@@ -44,6 +44,8 @@
         margin-bottom: 20px;
         font-weight: 600;
         position: relative;
+        font-size: 20px;
+        text-transform: uppercase;
         
         &::after {
             content: '';
@@ -61,6 +63,8 @@
         color: rgba(255, 255, 255, 0.8);
         line-height: 1.6;
         margin-bottom: 15px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 }
 
@@ -74,6 +78,9 @@
     p {
         font-size: 14px;
         color: rgba(255, 255, 255, 0.7);
+        max-width: 100%;
+        word-break: normal;
+        hyphens: auto;
     }
 }
 
@@ -84,30 +91,65 @@
     
     li {
         margin-bottom: 12px;
+        position: relative;
         
         a {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            padding-left: 15px;
+            padding: 8px 0 8px 25px;
+            font-size: 15px;
+            display: block;
+            border-radius: 6px;
+            font-weight: 500;
             
             &::before {
                 content: '→';
                 position: absolute;
                 left: 0;
+                top: 50%;
+                transform: translateY(-50%);
                 color: var(--optionalColor);
-                transition: transform 0.3s ease;
+                transition: all 0.3s ease;
+                font-size: 14px;
+                font-weight: bold;
+                opacity: 0.8;
+            }
+            
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 0;
+                height: 100%;
+                background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
+                transition: width 0.3s ease;
+                border-radius: 6px;
+                z-index: -1;
             }
             
             &:hover {
                 color: var(--whiteColor);
-                transform: translateX(5px);
+                transform: translateX(8px);
+                background: rgba(255, 255, 255, 0.05);
+                padding-left: 30px;
                 
                 &::before {
-                    transform: translateX(3px);
+                    transform: translateY(-50%) translateX(5px);
+                    color: var(--optionalColor);
+                    opacity: 1;
+                }
+                
+                &::after {
+                    width: 100%;
                 }
             }
+        }
+        
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 }
@@ -118,6 +160,8 @@
         align-items: center;
         margin-bottom: 15px;
         color: rgba(255, 255, 255, 0.8);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
         
         i {
             color: var(--optionalColor);
@@ -125,6 +169,7 @@
             font-size: 16px;
             width: 20px;
             text-align: center;
+            flex-shrink: 0;
         }
     }
 }
@@ -226,10 +271,17 @@
     
     .contact-info p {
         justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
     }
     
     .social-links {
         justify-content: center;
+    }
+    
+    .footer-logo p {
+        text-align: center;
+        padding: 0 10px;
     }
 }
 
@@ -238,9 +290,13 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     }
+    
+    .footer-logo p {
+        padding-right: 10px;
+    }
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
+@media only screen and (min-width: 992px) {
     .footer-main {
         grid-template-columns: repeat(4, 1fr);
         gap: 25px;

@@ -15,11 +15,12 @@ export class FooterComponent implements OnInit {
 
     copyrightText: Text[] = [
         {
-            text: ' Funeraria Memorial'
+            text: 'Memorial Veracruz'
         }
     ]
 
 }
+
 class Text {
-    text : string;
+    text: string;
 }
