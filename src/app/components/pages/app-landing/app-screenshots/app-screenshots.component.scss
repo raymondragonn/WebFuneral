@@ -2,13 +2,66 @@
     position: relative;
     z-index: 1;
     background: #f7f7f7;
-    
-    .section-title {
-        h2 {
-            color: var(--blackColor);
+}
+
+.screenshot-slider {
+    .screenshot-item {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            .image {
+                &::before {
+                    opacity: 1;
+                }
+                
+                &::after {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
         }
-        p {
-            color: var(--blackColor);
+        
+        .image {
+            position: relative;
+            display: block;
+            cursor: pointer;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(128, 128, 128, 0.6);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                z-index: 2;
+                pointer-events: none;
+            }
+            
+            &::after {
+                content: '+';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.8);
+                font-size: 50px;
+                color: #000000;
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 3;
+                pointer-events: none;
+            }
+            
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+                transition: all 0.3s ease;
+            }
         }
     }
 }
