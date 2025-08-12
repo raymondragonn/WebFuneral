@@ -36,8 +36,8 @@ export class NavbarComponent implements OnInit {
     
     appLandingNavItem = [
         {
-            id: 'home',
-            title: 'Home',
+            id: '',
+            title: 'Inicio',
         },
         {
             id: 'historia',
