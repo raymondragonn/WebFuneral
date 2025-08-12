@@ -14,8 +14,8 @@ export class AppBannerComponent implements OnInit {
 
     mainBannerContent: Content[] = [
         {
-            title: 'Best Mobile App For Your Business',
-            paragraph: 'App ipsum dolor sit amet, consectetur adipiscing elit, sed do mo tempor incididunt ut labore et dolore magna aliqua.',
+            title: 'Marzo 1992 - Junio 2025',
+            paragraph: '"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna." - Juan 3:16',
             button1: 'assets/img/store/1.png',
             button2: 'assets/img/store/2.png'
         }

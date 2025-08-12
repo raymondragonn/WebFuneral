@@ -40,32 +40,16 @@ export class NavbarComponent implements OnInit {
             title: 'Home',
         },
         {
-            id: 'about',
-            title: 'About',
+            id: 'historia',
+            title: 'Historia',
         },
         {
-            id: 'pricing',
-            title: 'Pricing',
+            id: 'galeria',
+            title: 'Galería',
         },
         {
-            id: 'screenshots',
-            title: 'Screenshots',
-        },
-        {
-            id: 'team',
-            title: 'Team',
-        },
-        {
-            id: 'faq',
-            title: 'FAQ',
-        },
-        {
-            id: 'feedback',
-            title: 'Feedback',
-        },
-        {
-            id: 'contact',
-            title: 'Contact',
+            id: 'recuerdos',
+            title: 'Recuerdos',
         }
     ];
     bookLandingNavItem = [

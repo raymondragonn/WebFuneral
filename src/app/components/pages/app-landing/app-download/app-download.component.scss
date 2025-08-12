@@ -8,18 +8,32 @@
         font-size: 40px;
         margin-bottom: 15px;
     }
+    
+    p {
+        font-size: 18px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        color: #666;
+        font-style: italic;
+    }
+    
     .app-holder {
         margin-top: 30px;
 
-        a {
-            margin-right: 15px;
+        .default-btn {
+            background-color: var(--mainColor);
+            color: var(--whiteColor);
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
             display: inline-block;
-
-            &:last-child {
-                margin-right: 0;
-            }
+            
             &:hover {
-                transform: translateY(-5px);
+                background-color: #8A897C;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             }
         }
     }
@@ -36,17 +50,20 @@
         h3 {
             font-size: 27px;
         }
+        
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            font-style: italic;
+        }
+        
         .app-holder {
             margin-top: 25px;
     
-            a {
-                margin: {
-                    left: 5px !important;
-                    right: 5px !important;
-                };
-                img {
-                    width: 120px;
-                }
+            .default-btn {
+                padding: 12px 25px;
+                font-size: 14px;
             }
         }
     }
@@ -67,14 +84,20 @@
         h3 {
             font-size: 33px;
         }
+        
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 19px;
+            font-style: italic;
+        }
+        
         .app-holder {
             margin-top: 25px;
     
-            a {
-                margin: {
-                    left: 5px !important;
-                    right: 5px !important;
-                };
+            .default-btn {
+                padding: 14px 28px;
+                font-size: 15px;
             }
         }
     }
@@ -89,6 +112,13 @@
 
         h3 {
             font-size: 37px;
+        }
+        
+        p {
+            font-size: 17px;
+            line-height: 1.75;
+            margin-bottom: 19px;
+            font-style: italic;
         }
     }
 

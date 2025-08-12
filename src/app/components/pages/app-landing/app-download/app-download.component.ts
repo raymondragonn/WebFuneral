@@ -14,15 +14,15 @@ export class AppDownloadComponent implements OnInit {
     
     appDownloadImage: Image[] = [
         {
-            img: 'assets/img/why-choose.png'
+            img: 'assets/img/person/photo-about.svg'
         }
     ]
     appDownloadContent: Content[] = [
         {
-            title: 'Download Our Apps Today',
-            paragraph1: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            paragraph2: 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account the system and expound the actual teachings of the great.',
-            paragraph3: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            title: 'Honrando la Memoria de Jaime Hernández Hernández',
+            paragraph1: 'Jaime Hernández Hernández fue un hombre que tocó la vida de muchas personas con su bondad, sabiduría y dedicación. Su legado permanecerá en nuestros corazones para siempre.',
+            paragraph2: 'Durante toda su vida, Jaime demostró un compromiso inquebrantable con su familia, amigos y comunidad. Su sonrisa cálida y palabras de aliento iluminaron los días de todos los que tuvieron el privilegio de conocerlo.',
+            paragraph3: 'Su generosidad y espíritu de servicio marcaron la diferencia en la vida de quienes lo rodearon.',
             button1: 'assets/img/store/1.png',
             button2: 'assets/img/store/2.png'
         }

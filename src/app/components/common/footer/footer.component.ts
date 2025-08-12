@@ -15,7 +15,7 @@ export class FooterComponent implements OnInit {
 
     copyrightText: Text[] = [
         {
-            text: '© Nial is Proudly Owned by HiBootstrap'
+            text: ' Funeraria Memorial'
         }
     ]
 
