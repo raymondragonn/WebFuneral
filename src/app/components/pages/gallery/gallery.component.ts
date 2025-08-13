@@ -15,7 +15,7 @@ export class GalleryComponent {
   
   selectedImage: string | null = null;
   selectedVideo: string | null = null;
-  currentImageIndex: number = 0;
+  currentIndex: number = 0;
   
   galleryImages = [
     {
@@ -74,6 +74,7 @@ export class GalleryComponent {
       title: 'Video Ceremonial',
       type: 'video',
       videoUrl: 'assets/videos/Video1.mp4',
+      thumbnail: 'assets/img/video-bg.jpg',
       isLocal: true
     },
     {
@@ -84,6 +85,7 @@ export class GalleryComponent {
       title: 'Video Institucional',
       type: 'video',
       videoUrl: 'assets/videos/Video2.mp4',
+      thumbnail: 'assets/img/video-bg2.jpg',
       isLocal: true
     } 
   ];
@@ -97,14 +99,8 @@ export class GalleryComponent {
   }
 
   openModal(item: any) {
-    if (item.type === 'video') {
-      this.selectedVideo = item.videoUrl;
-      this.selectedImage = null;
-    } else {
-      this.selectedImage = item.src;
-      this.selectedVideo = null;
-      this.currentImageIndex = this.imageItems.findIndex(img => img.id === item.id);
-    }
+    this.currentIndex = this.galleryImages.findIndex(img => img.id === item.id);
+    this.updateModalContent();
   }
 
   closeModal() {
@@ -112,26 +108,48 @@ export class GalleryComponent {
     this.selectedVideo = null;
   }
 
-  previousImage() {
-    if (this.currentImageIndex > 0) {
-      this.currentImageIndex--;
-      this.selectedImage = this.imageItems[this.currentImageIndex].src;
+  previousItem() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    } else {
+      // Ir al último elemento
+      this.currentIndex = this.galleryImages.length - 1;
+    }
+    this.updateModalContent();
+  }
+
+  nextItem() {
+    if (this.currentIndex < this.galleryImages.length - 1) {
+      this.currentIndex++;
+    } else {
+      // Ir al primer elemento
+      this.currentIndex = 0;
+    }
+    this.updateModalContent();
+  }
+
+  updateModalContent() {
+    const currentItem = this.galleryImages[this.currentIndex];
+    if (currentItem.type === 'video') {
+      this.selectedVideo = currentItem.videoUrl;
+      this.selectedImage = null;
+    } else {
+      this.selectedImage = currentItem.src;
+      this.selectedVideo = null;
     }
   }
 
-  nextImage() {
-    if (this.currentImageIndex < this.imageItems.length - 1) {
-      this.currentImageIndex++;
-      this.selectedImage = this.imageItems[this.currentImageIndex].src;
-    }
-  }
-
-  getCurrentImageTitle(): string {
-    return this.imageItems[this.currentImageIndex]?.title || '';
+  getCurrentTitle(): string {
+    return this.galleryImages[this.currentIndex]?.title || '';
   }
 
   getCurrentVideoItem() {
     return this.galleryImages.find(item => item.videoUrl === this.selectedVideo);
+  }
+
+  getVideoThumbnail(videoUrl: string): string {
+    const videoItem = this.galleryImages.find(item => item.videoUrl === videoUrl);
+    return videoItem?.thumbnail || videoItem?.src || '';
   }
 
   getSafeVideoUrl(url: string): SafeResourceUrl {

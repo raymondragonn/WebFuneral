@@ -16,7 +16,7 @@
         [class.video-item]="item.type === 'video'"
         (click)="openModal(item)">
         <div class="image-container">
-          <img [src]="item.src" [alt]="item.alt" loading="lazy">
+          <img [src]="item.type === 'video' ? item.thumbnail : item.src" [alt]="item.alt" loading="lazy">
           <div class="image-overlay">
             <div class="overlay-content">
               <h4>{{ item.title }}</h4>
@@ -31,33 +31,10 @@
       </div>
     </div>
 
-    
-    <!-- <div class="modal-overlay" *ngIf="selectedImage || selectedVideo" (click)="closeModal()">
-      <div class="modal-content" (click)="$event.stopPropagation()">
-        <button class="modal-close" (click)="closeModal()">
-          <i class="las la-times"></i>
-        </button>
-        
-        
-        <img *ngIf="selectedImage" [src]="selectedImage" alt="Imagen ampliada">
-        
-       
-        <div *ngIf="selectedVideo" class="video-container">
-          <iframe 
-            [src]="getSafeVideoUrl(selectedVideo)" 
-            frameborder="0" 
-            allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-          </iframe>
-        </div>
-      </div>
-    </div> -->
     <!-- Modal for images -->
-
-
     <div *ngIf="selectedImage" class="modal" (click)="closeModal()">
       <div class="modal-content" (click)="$event.stopPropagation()">
-        <img [src]="selectedImage" [alt]="getCurrentImageTitle()" class="modal-image">
+        <img [src]="selectedImage" [alt]="getCurrentTitle()" class="modal-image">
         
         <!-- Close button -->
         <button class="close-btn" (click)="closeModal()">&times;</button>
@@ -65,36 +42,48 @@
         <!-- Navigation arrows -->
         <button 
           class="nav-arrow prev" 
-          (click)="previousImage()" 
-          [disabled]="currentImageIndex === 0">
+          (click)="previousItem()">
           &#8249;
         </button>
         
         <button 
           class="nav-arrow next" 
-          (click)="nextImage()" 
-          [disabled]="currentImageIndex === imageItems.length - 1">
+          (click)="nextItem()">
           &#8250;
         </button>
       </div>
     </div>
-<!-- Modal for videos -->
-<div *ngIf="selectedVideo" class="modal" (click)="closeModal()">
-  <div class="modal-content" (click)="$event.stopPropagation()">
-    
-    <!-- Video MP4 local -->
-    <video 
-      class="modal-video" 
-      controls 
-      preload="metadata">
-      <source [src]="selectedVideo" type="video/mp4">
-      <source [src]="selectedVideo" type="video/webm">
-      <source [src]="selectedVideo" type="video/ogg">
-      Tu navegador no soporta el elemento de video.
-    </video>
-    
-    <button class="close-btn" (click)="closeModal()">&times;</button>
-  </div>
-</div>
+
+    <!-- Modal for videos -->
+    <div *ngIf="selectedVideo" class="modal" (click)="closeModal()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        
+        <!-- Video MP4 local -->
+        <video 
+          class="modal-video" 
+          controls 
+          preload="metadata">
+          <source [src]="selectedVideo" type="video/mp4">
+          <source [src]="selectedVideo" type="video/webm">
+          <source [src]="selectedVideo" type="video/ogg">
+          Tu navegador no soporta el elemento de video.
+        </video>
+        
+        <button class="close-btn" (click)="closeModal()">&times;</button>
+
+        <!-- Navigation arrows for videos -->
+        <button 
+          class="nav-arrow prev" 
+          (click)="previousItem()">
+          &#8249;
+        </button>
+        
+        <button 
+          class="nav-arrow next" 
+          (click)="nextItem()">
+          &#8250;
+        </button>
+      </div>
+    </div>
   </div>
 </section>
