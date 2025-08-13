@@ -17,8 +17,8 @@
     }
 
     .feedback-desc {
-        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-        border: 1px solid rgba(0, 0, 0, 0.05);
+        background: var(--blackColor);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 15px;
         position: relative;
         z-index: 1;
@@ -29,7 +29,7 @@
             right: 30px;
             top: 65px;
         };
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease;
         
         &::before {
@@ -40,8 +40,8 @@
             width: 30px;
             height: 30px;
             z-index: -1;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            background: var(--blackColor);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-top: none;
             border-left: none;
             transform: rotate(45deg);
@@ -53,14 +53,14 @@
             top: 15px;
             right: 25px;
             font-size: 60px;
-            color: rgba(0, 0, 0, 0.1);
+            color: rgba(192, 168, 130, 0.3);
             font-family: serif;
             line-height: 1;
         }
     }
     
     p {
-        color: #2c3e50;
+        color: #f5f5f5;
         font-style: italic;
         line-height: 1.9;
         font-size: 16px;
@@ -77,7 +77,7 @@
         right: 0;
         margin: auto;
         color: #ffffff;
-        background: linear-gradient(135deg, var(--optionalColor) 0%, var(--optionalColor) 100%);
+        background: var(--blackColor);
         width: 70px;
         height: 70px;
         line-height: 70px;
@@ -85,9 +85,9 @@
         z-index: 2;
         text-align: center;
         font-size: 28px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         transition: all 0.3s ease;
-        border: 3px solid #ffffff;
+        border: 3px solid var(--optionalColor);
     }
     
     .client-info {
@@ -104,7 +104,7 @@
         h3 {
             margin-bottom: 5px;
             font-size: 20px;
-            color: #34495e;
+            color: #c0a882;
             font-weight: 600;
             position: relative;
             font-family: 'Poppins', sans-serif;

@@ -83,8 +83,8 @@ export class AppContactComponent implements OnInit {
 
     sectionTitle: sectionTitleContent[] = [
         {
-            title: 'Get In Touch With Us',
-            paragraphText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+            title: 'Escribe tu recuerdo',
+            paragraphText: 'Escribe tu recuerdo y lo compartiremos con los demás.'
         }
     ]
     contactImage: Image[] = [
