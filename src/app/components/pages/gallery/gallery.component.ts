@@ -20,7 +20,7 @@ export class GalleryComponent {
   galleryImages = [
     {
       id: 1,
-      src: 'assets/img/fotosRecuerdos/Recuerdo1.jpeg',
+      src: 'assets/img/person/photo-gallery4.svg',
       alt: 'Capilla Principal',
       category: 'imagenes',
       title: 'Capilla Principal',
@@ -28,7 +28,7 @@ export class GalleryComponent {
     },
     {
       id: 2,
-      src: 'assets/img/fotosRecuerdos/Recuerdo2.jpeg',
+      src: 'assets/img/person/photo-gallery1.svg',
       alt: 'Salón de Velación',
       category: 'imagenes',
       title: 'Salón de Velación',
@@ -36,7 +36,7 @@ export class GalleryComponent {
     },
     {
       id: 3,
-      src: 'assets/img/fotosRecuerdos/Recuerdo3.jpeg',
+      src: 'assets/img/person/photo-gallery2.svg',
       alt: 'Jardín de Descanso',
       category: 'imagenes',
       title: 'Jardín de Descanso',
@@ -44,7 +44,7 @@ export class GalleryComponent {
     },
     {
       id: 4,
-      src: 'assets/img/fotosRecuerdos/Recuerdo4.jpeg',
+      src: 'assets/img/person/photo-gallery3.svg',
       alt: 'Área de Recepción',
       category: 'imagenes',
       title: 'Área de Recepción',
@@ -52,6 +52,22 @@ export class GalleryComponent {
     },
     {
       id: 5,
+      src: 'assets/img/person/photo-gallery5.svg',
+      alt: 'Área de Recepción',
+      category: 'imagenes',
+      title: 'Área de Recepción',
+      type: 'image'
+    },
+    {
+      id: 6,
+      src: 'assets/img/person/photo-gallery6.svg',
+      alt: 'Área de Recepción',
+      category: 'imagenes',
+      title: 'Área de Recepción',
+      type: 'image'
+    },
+    {
+      id: 7,
       src: 'assets/img/video-bg.jpg',
       alt: 'Video Ceremonial',
       category: 'videos',
@@ -61,7 +77,7 @@ export class GalleryComponent {
       isLocal: true
     },
     {
-      id: 6,
+      id: 8,
       src: 'assets/img/video-bg2.jpg',
       alt: 'Video Institucional',
       category: 'videos',
@@ -69,7 +85,7 @@ export class GalleryComponent {
       type: 'video',
       videoUrl: 'assets/videos/Video2.mp4',
       isLocal: true
-    }
+    } 
   ];
 
   get filteredImages() {

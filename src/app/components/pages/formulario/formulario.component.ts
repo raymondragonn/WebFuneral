@@ -20,15 +20,32 @@ export class FormularioComponent {
   isLoading = false;
   showSuccess = false;
   errorMessage = '';
+  mensajes: Mensaje[] = [];
+  loadingMensajes = false;
 
   constructor(
     private fb: FormBuilder,
     private mensajeService: MensajeService
   ) {
-    // this.mensajeService.obtenerMensajes().subscribe( mensajes => {
-    //   console.log(mensajes);
-    // })
+    this.cargarMensajes();
+  }
 
+  /**
+   * Carga todos los mensajes desde el servidor
+   */
+  cargarMensajes() {
+    this.loadingMensajes = true;
+    this.mensajeService.obtenerMensajes().subscribe({
+      next: (mensajes) => {
+        this.mensajes = mensajes;
+        this.loadingMensajes = false;
+        console.log('Mensajes cargados:', mensajes);
+      },
+      error: (error) => {
+        console.error('Error al cargar mensajes:', error);
+        this.loadingMensajes = false;
+      }
+    });
   }
 
   
@@ -52,6 +69,9 @@ export class FormularioComponent {
             this.showSuccess = true;
             this.formulario.reset();
             console.log('Mensaje enviado exitosamente:', response);
+            
+            // Recargar los mensajes para mostrar el nuevo
+            this.cargarMensajes();
             
             // Ocultar mensaje de éxito después de 5 segundos
             setTimeout(() => {
