@@ -2,3 +2,18 @@
 <app-navbar></app-navbar>
     <router-outlet></router-outlet>
 <app-footer></app-footer>
+
+<!-- Botón flotante para escribir recuerdo -->
+<div class="floating-memory-button" (click)="openMemoryForm()">
+    <div class="button-content">
+        <i class="las la-edit"></i>
+        <span class="button-text">Escribir un recuerdo</span>
+    </div>
+    <div class="tooltip-content">
+        <div class="tooltip-arrow"></div>
+        <div class="tooltip-text">
+            <strong>Comparte una anécdota</strong><br>
+            Escribe una historia vivida con Jaime Hernández y se publicará en el muro de recuerdos para que sea visto por todos.
+        </div>
+    </div>
+</div>

@@ -537,3 +537,167 @@ textarea.form-control {
     }
 
 }
+
+/* Botón flotante para escribir recuerdo */
+.floating-memory-button {
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    z-index: 9999 !important;
+    cursor: pointer;
+    background-color: var(--mainColor) !important;
+    color: var(--whiteColor) !important;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 25px;
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    min-width: 200px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    font-family: var(--headingFontFamily);
+    font-weight: 500;
+    font-size: 17px;
+    transition: var(--transition);
+    position: relative;
+
+    &:hover {
+        background-color: var(--whiteColor) !important;
+        color: var(--blackColor) !important;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+
+        .tooltip-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    }
+
+    .button-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    i {
+        font-size: 18px;
+        color: inherit;
+    }
+
+    .button-text {
+        color: inherit;
+        font-weight: 500;
+        font-size: 17px;
+        white-space: nowrap;
+        font-family: inherit;
+    }
+
+    .tooltip-content {
+        position: absolute;
+        bottom: calc(100% + 15px);
+        right: 0;
+        background-color: var(--blackColor);
+        color: var(--whiteColor);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        min-width: 280px;
+        max-width: 320px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        z-index: 10000;
+        font-family: var(--mainFontFamily);
+        font-size: 14px;
+        line-height: 1.5;
+        text-align: left;
+
+        .tooltip-arrow {
+            position: absolute;
+            top: 100%;
+            right: 30px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid var(--blackColor);
+        }
+
+        .tooltip-text {
+            strong {
+                color: var(--mainColor);
+                font-weight: 600;
+                display: block;
+                margin-bottom: 5px;
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+/* Responsive para dispositivos móviles */
+@media only screen and (max-width: 767px) {
+    .floating-memory-button {
+        bottom: 20px !important;
+        right: 20px !important;
+        padding: 12px 20px !important;
+        min-width: 180px !important;
+        font-size: 14px !important;
+
+        .button-text {
+            font-size: 14px !important;
+        }
+
+        i {
+            font-size: 16px !important;
+        }
+
+        .tooltip-content {
+            min-width: 250px !important;
+            max-width: 280px !important;
+            right: -20px !important;
+            font-size: 13px !important;
+            padding: 12px !important;
+
+            .tooltip-text {
+                strong {
+                    font-size: 14px !important;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .floating-memory-button {
+        bottom: 25px !important;
+        right: 25px !important;
+        padding: 13px 22px !important;
+        min-width: 190px !important;
+        font-size: 15px !important;
+
+        .button-text {
+            font-size: 15px !important;
+        }
+
+        i {
+            font-size: 17px !important;
+        }
+
+        .tooltip-content {
+            min-width: 260px !important;
+            max-width: 300px !important;
+            font-size: 13px !important;
+            padding: 13px !important;
+
+            .tooltip-text {
+                strong {
+                    font-size: 14px !important;
+                }
+            }
+        }
+    }
+}

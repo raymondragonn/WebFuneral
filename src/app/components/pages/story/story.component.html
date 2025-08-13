@@ -1,1 +1,82 @@
-<p>story works!</p>
+<section class="story-section">
+  <div class="container">
+    <!-- Header Section -->
+    <div class="section-title">
+      <h2>La historia de Jaime Hernández</h2>
+      <p>Un viaje a través del tiempo, recordando los momentos más importantes de una vida llena de amor y sabiduría.</p>
+    </div>
+
+    <!-- Timeline Container -->
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      
+      <!-- Timeline Events -->
+      <div class="timeline-events">
+        <div 
+          *ngFor="let event of timelineEvents; let i = index" 
+          class="timeline-event"
+          [class.left]="i % 2 === 0"
+          [class.right]="i % 2 === 1"
+          [class.milestone]="event.isMilestone"
+          [style.animation-delay.ms]="i * 200">
+          
+          <!-- Timeline Dot -->
+          <div class="timeline-dot" 
+               style="background-color: var(--optionalColor)">
+            <i class="las" [class]="getCategoryIcon(event.category)" style="color: var(--memorial-text)"></i>
+          </div>
+          
+          <!-- Event Card -->
+          <div class="event-card" (click)="openModal(event)">
+            <div class="event-image">
+              <img [src]="event.image" [alt]="event.imageAlt" loading="lazy">
+              <div class="image-overlay">
+                <i class="las la-search-plus"></i>
+              </div>
+            </div>
+            
+            <div class="event-content">
+              <div class="event-year">{{ event.year }}</div>
+              <h3 class="event-title">{{ event.title }}</h3>
+              <p class="event-description">{{ event.description }}</p>
+              
+              <!-- Category Badge -->
+              <div class="category-badge" 
+                   style="background-color: var(--optionalColor)">
+                <i class="las" [class]="getCategoryIcon(event.category)" style="color: var(--memorial-text)"></i>
+                <span style="color: var(--memorial-text)">{{ event.category | titlecase }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Event Details -->
+    <div *ngIf="selectedEvent" class="modal" (click)="closeModal()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+          <h2>{{ selectedEvent.title }}</h2>
+          <button class="close-btn" (click)="closeModal()">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+          <div class="modal-image">
+            <img [src]="selectedEvent.image" [alt]="selectedEvent.imageAlt">
+          </div>
+          
+          <div class="modal-info">
+            <div class="modal-year">{{ selectedEvent.year }}</div>
+            <p class="modal-description">{{ selectedEvent.description }}</p>
+            
+            <div class="modal-category" 
+                 style="background-color: var(--optionalColor)">
+              <i class="las" [class]="getCategoryIcon(selectedEvent.category)" style="color: var(--memorial-text)"></i>
+              <span style="color: var(--memorial-text)">{{ selectedEvent.category | titlecase }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
