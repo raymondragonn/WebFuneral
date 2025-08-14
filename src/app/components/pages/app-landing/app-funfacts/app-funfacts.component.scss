@@ -1,31 +1,19 @@
 .fun-facts-area {
     position: relative;
     z-index: 1;
-    min-height: 400px;
+    min-height: 800px;
     background: {
         image: url(../../../../../assets/img/person/banner-one.svg);
         position: center center;
         size: cover;
         repeat: no-repeat;
     };
-    &::before {
-        left: 0;
-        right: 0;
-        top: 0;
-        content: "";
-        height: 100%;
-        width: 100%;
-        opacity: .50;
-        z-index: -1;
-        position: absolute;
-        background-color: #000000;
-    }
 }
 
 /* Max width 767px */
 @media only screen and (max-width: 767px) {
     .fun-facts-area {
-        min-height: 150px;
+        min-height: 600px;
         padding: {
             top: 80px;
             bottom: 60px;
@@ -39,7 +27,7 @@
 /* Min width 768px to Max width 991px */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .fun-facts-area {
-        min-height: 180px;
+        min-height: 700px;
         padding: {
             top: 100px;
             bottom: 80px;
@@ -50,7 +38,7 @@
 /* Min width 992px to Max width 1199px */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .fun-facts-area {
-        min-height: 200px;
+        min-height: 800px;
         padding: {
             top: 120px;
             bottom: 100px;

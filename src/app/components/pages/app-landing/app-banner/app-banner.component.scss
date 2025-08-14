@@ -4,21 +4,11 @@
     background-size: cover;
     background-attachment: scroll;
     position: relative;
+    min-height: 800px;
     padding: {
-        top: 160px;
+        top: 250px;
         bottom: 80px;
     };
-    
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.3);
-        z-index: 1;
-    }
     
     .container {
         position: relative;
@@ -29,40 +19,45 @@
         text-align: center;
         
         h1 {
-            margin-bottom: 15px;
-            font-size: 40px;
+            margin-bottom: 25px;
+            font-size: 60px;
             color: var(--whiteColor);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            font-weight: 700;
+            line-height: 1.2;
+            white-space: nowrap;
         }
         p {
-            max-width: 520px;
-            font-size: 20px;
+            max-width: 700px;
+            font-size: 28px;
             color: var(--whiteColor);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            margin: 0 auto 20px auto;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin: 0 auto 30px auto;
+            font-weight: 500;
+            line-height: 1.4;
         }
         .banner-holder {
-            margin-top: 30px;
+            margin-top: 40px;
             text-align: center;
 
             a {
                 display: inline-block;
-                padding: 15px 40px;
+                padding: 20px 50px;
                 background: var(--blackColor);
                 color: white;
                 text-decoration: none;
                 border: none;
-                border-radius: 8px;
+                border-radius: 10px;
                 font-weight: 700;
-                font-size: 16px;
+                font-size: 20px;
                 font-family: inherit;
                 font-style: italic;
                 transition: all 0.3s ease;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
                 
                 &:hover {
                     transform: translateY(-3px);
-                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
                     background: #333333;
                     color: white;
                     text-decoration: none;
@@ -84,8 +79,9 @@
 
     .app-banner-area {
         background-attachment: scroll;
+        min-height: 600px;
         padding: {
-            top: 140px;
+            top: 200px;
             bottom: 60px;
         };
         .main-banner-content {
@@ -93,27 +89,32 @@
             margin-bottom: 30px;
 
             h1 {
-                font-size: 32px;
+                font-size: 36px;
                 color: #ffffff;
-                font-weight: 600;
+                font-weight: 700;
                 letter-spacing: 0.5px;
+                white-space: nowrap;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             }
             p {
                 max-width: 100%;
-                font-size: 14px;
-                color: #d4af37;
+                font-size: 18px;
+                color: #ffffff;
                 font-weight: 500;
                 letter-spacing: 0.3px;
-                line-height: 1.6;
+                line-height: 1.4;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
             }
             .banner-holder {
-                margin-top: 20px;
+                margin-top: 25px;
     
                 a {
                     margin: {
                         left: 5px;
                         right: 5px;
                     };
+                    padding: 15px 30px;
+                    font-size: 16px;
                     img {
                         width: 120px;
                     }
@@ -129,32 +130,42 @@
 
     .app-banner-area {
         background-attachment: scroll;
+        min-height: 700px;
+        padding: {
+            top: 220px;
+            bottom: 80px;
+        };
         .main-banner-content {
             text-align: center;
             margin-bottom: 30px;
 
             h1 {
-                font-size: 40px;
+                font-size: 48px;
                 color: #ffffff;
-                font-weight: 600;
+                font-weight: 700;
                 letter-spacing: 0.5px;
+                white-space: nowrap;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             }
             p {
                 max-width: 100%;
-                font-size: 15px;
-                color: #d4af37;
+                font-size: 22px;
+                color: #ffffff;
                 font-weight: 500;
                 letter-spacing: 0.3px;
-                line-height: 1.6;
+                line-height: 1.4;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
             }
             .banner-holder {
-                margin-top: 20px;
+                margin-top: 30px;
     
                 a {
                     margin: {
                         left: 5px;
                         right: 5px;
                     };
+                    padding: 18px 40px;
+                    font-size: 18px;
                 }
             }
         }
@@ -166,20 +177,28 @@
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 
     .app-banner-area {
+        min-height: 800px;
+        padding: {
+            top: 250px;
+            bottom: 80px;
+        };
         .main-banner-content {
             h1 {
                 font-size: 54px;
                 color: #ffffff;
-                font-weight: 600;
+                font-weight: 700;
                 letter-spacing: 0.5px;
+                white-space: nowrap;
+                text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
             }
             p {
                 max-width: 100%;
-                font-size: 15px;
-                color: #d4af37;
+                font-size: 24px;
+                color: #ffffff;
                 font-weight: 500;
                 letter-spacing: 0.3px;
-                line-height: 1.6;
+                line-height: 1.4;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             }
         }
     }
