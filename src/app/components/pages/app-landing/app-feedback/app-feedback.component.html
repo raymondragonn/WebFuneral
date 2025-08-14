@@ -7,14 +7,18 @@
         
         <div class="feedback-slides owl-carousel owl-theme">
             <div class="single-feedback-item" *ngFor="let Content of singleFeedbackItem;">
-                <div class="icon">
-                    <i class="las la-heart"></i>
-                </div>
                 <div class="feedback-desc">
-                    <p>{{Content.mensaje}}</p>
-                </div>
-                <div class="client-info">
-                    <h3>{{Content.nombre}}</h3>
+                    <div class="feedback-header">
+                        <div class="icon">
+                            <i class="las la-quote-left"></i>
+                        </div>
+                    </div>
+                    <div class="feedback-body">
+                        <p>{{Content.mensaje}}</p>
+                    </div>
+                    <div class="client-info">
+                        <h3>{{Content.nombre}}</h3>
+                    </div>
                 </div>
             </div>
         </div>
