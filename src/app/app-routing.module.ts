@@ -7,6 +7,7 @@ import { ProductsLandingComponent } from './components/pages/products-landing/pr
 import { FormularioComponent } from './components/pages/formulario/formulario.component';
 import { StoryComponent } from './components/pages/story/story.component';
 import { GalleryComponent } from './components/pages/gallery/gallery.component';
+import { RecuerdosComponent } from './components/pages/recuerdos/recuerdos.component';
 
 const routes: Routes = [
     {path: '', component: AppLandingComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
     {path: 'recuerdos', component: FormularioComponent},
     {path: 'historia', component: StoryComponent},
     {path: 'galeria', component: GalleryComponent},
+    {path: 'formulario', component: RecuerdosComponent}
 
 ];
 

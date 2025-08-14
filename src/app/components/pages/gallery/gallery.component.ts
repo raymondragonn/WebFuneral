@@ -68,24 +68,24 @@ export class GalleryComponent {
     },
     {
       id: 7,
-      src: 'assets/img/video-bg.jpg',
+      src: 'assets/img/partner/MemorialVideo.PNG',
       alt: 'Video Ceremonial',
       category: 'videos',
       title: 'Video Ceremonial',
       type: 'video',
       videoUrl: 'assets/videos/Video1.mp4',
-      thumbnail: 'assets/img/video-bg.jpg',
+      thumbnail: 'assets/img/partner/MemorialVideo.PNG',
       isLocal: true
     },
     {
       id: 8,
-      src: 'assets/img/video-bg2.jpg',
+      src: 'assets/img/partner/MemorialVideo.PNG',
       alt: 'Video Institucional',
       category: 'videos',
       title: 'Video Institucional',
       type: 'video',
       videoUrl: 'assets/videos/Video2.mp4',
-      thumbnail: 'assets/img/video-bg2.jpg',
+      thumbnail: 'assets/img/partner/MemorialVideo.PNG',
       isLocal: true
     } 
   ];

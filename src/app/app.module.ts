@@ -60,6 +60,8 @@ import { ProductsFaqComponent } from './components/pages/products-landing/produc
 import { ProductsGalleryComponent } from './components/pages/products-landing/products-gallery/products-gallery.component';
 import { OtherProductsComponent } from './components/pages/products-landing/other-products/other-products.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RecuerdosComponent } from './components/pages/recuerdos/recuerdos.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +90,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BookAboutComponent,
     BookFunfactsComponent,
     BookPricingComponent,
+    RecuerdosComponent,
     BookNewsletterComponent,
     BookFeedbackComponent,
     BookContactComponent,
@@ -123,10 +126,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    BrowserModule, 
-    AppRoutingModule, 
-    ReactiveFormsModule
+    HttpClientModule,  
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

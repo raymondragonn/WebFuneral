@@ -48,6 +48,6 @@ export class AppComponent implements OnInit {
 
     openMemoryForm() {
         // Redirigir a la página de recuerdos
-        this.router.navigate(['/recuerdos']);
+        this.router.navigate(['/formulario']);
     }
 }

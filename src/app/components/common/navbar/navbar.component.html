@@ -39,7 +39,7 @@
                     </li>
                 </ul>
 
-                <ul class="navbar-nav mx-auto" *ngIf="(location == '/recuerdos' || location == '/historia' || location == '/galeria')">
+                <ul class="navbar-nav mx-auto" *ngIf="(location == '/recuerdos' || location == '/historia' || location == '/galeria' || location == '/formulario')">
                     <li class="nav-item" *ngFor="let navItem of appLandingNavItem;">
                         <a href="/{{navItem.id}}" class="nav-link">{{navItem.title | uppercase}}</a>
                     </li>
