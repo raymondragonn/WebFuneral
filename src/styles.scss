@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 /* You can add global styles to this file, and also import other style files */
+html {
+    overflow-x: hidden;
+}
+
 :root {
     --mainFontFamily: 'Source Sans 3', 'Open Sans', 'Source Sans Pro', Arial, sans-serif;
     --headingFontFamily: 'Playfair Display', 'Merriweather', serif;
@@ -17,6 +21,7 @@ body {
     padding: 0;
     color: var(--blackColor);
     background-color: var(--whiteColor);
+    overflow-x: hidden;
     font: {
         family: var(--mainFontFamily);
         size: var(--fontSize);

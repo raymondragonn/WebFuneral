@@ -4,8 +4,9 @@
     z-index: 1;
     text-align: left;
     padding: 30px;
-    background-color: #fafafa;
+    background: #353535;
     border-radius: 5px;
+    border: 1px solid rgba(192, 168, 130, 0.25);
 
     .icon {
         height: 75px;
@@ -23,9 +24,11 @@
         font-size: 23px;
         margin-bottom: 12px;
         transition: var(--transition);
+        color: #f5f5f5;
     }
     p {
         transition: var(--transition);
+        color: #8b887d;
     }
     &::before {
         content: "";
