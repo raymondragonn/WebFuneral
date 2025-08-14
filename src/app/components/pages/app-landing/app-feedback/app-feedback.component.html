@@ -5,7 +5,8 @@
             <p>{{sectionTitleContent.paragraphText}}</p>
         </div>
         
-        <div class="feedback-slides owl-carousel owl-theme">
+        <!-- Carrusel de mensajes cuando hay mensajes -->
+        <div *ngIf="hasMessages" class="feedback-slides owl-carousel owl-theme">
             <div class="single-feedback-item" *ngFor="let Content of singleFeedbackItem;">
                 <div class="feedback-desc">
                     <div class="feedback-header">
@@ -21,6 +22,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Banner de estado vacío cuando no hay mensajes -->
+        <div *ngIf="!hasMessages" class="empty-state">
+            <div class="empty-icon">💭</div>
+            <h4>Aún no hay recuerdos compartidos</h4>
+            <p>Los hermosos recuerdos de Jaime Hernandez aparecerán aquí cuando sean compartidos por familia y amigos.</p>
         </div>
     </div>
 </section>

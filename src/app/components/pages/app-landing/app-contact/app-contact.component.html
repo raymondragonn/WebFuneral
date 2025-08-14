@@ -10,6 +10,17 @@
 
             <div class="col-lg-6 col-md-12">
                 <div class="contact-form">
+                    <!-- Mensaje de éxito -->
+                    <div *ngIf="showSuccess" class="alert alert-success">
+                        Tu recuerdo ha sido enviado exitosamente. Gracias por compartir.
+                    </div>
+
+                    <!-- Mensaje de error -->
+                    <div *ngIf="errorMessage" class="alert alert-error">
+                        {{ errorMessage }}
+                        <button type="button" class="close-alert" (click)="clearMessages()">×</button>
+                    </div>
+
                     <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="formulario-form">
                         <div class="form-group">
                             <label for="nombre" class="form-label">Nombre Completo:</label>

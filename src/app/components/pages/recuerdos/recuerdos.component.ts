@@ -55,12 +55,12 @@ export class RecuerdosComponent implements OnInit {
               this.router.navigate(['/recuerdos']);
             }, 2000);
           } else {
-            this.errorMessage = response.message || 'Error al enviar el recuerdo';
+            this.errorMessage = 'No se ha podido enviar tu recuerdo en este momento.';
           }
         },
         error: (error) => {
           this.isLoading = false;
-          this.errorMessage = error.message || 'Error de conexión. Inténtalo de nuevo.';
+          this.errorMessage = 'No se ha podido enviar tu recuerdo en este momento.';
           console.error('Error al enviar recuerdo:', error);
         }
       });

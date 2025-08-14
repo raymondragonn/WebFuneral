@@ -18,16 +18,23 @@ export class AppFeedbackComponent implements OnInit, AfterViewInit {
                 nombre: item.nombre
             }));
             
-            // Reinicializar el carrusel después de cargar los datos
-            setTimeout(() => {
-                this.initializeCarousel();
-            }, 100);
+            // Verificar si hay mensajes
+            this.hasMessages = this.singleFeedbackItem.length > 0;
+            
+            // Reinicializar el carrusel después de cargar los datos solo si hay mensajes
+            if (this.hasMessages) {
+                setTimeout(() => {
+                    this.initializeCarousel();
+                }, 100);
+            }
         })
     }
 
     ngAfterViewInit(): void {
-        // Inicializar el carrusel cuando la vista esté lista
-        this.initializeCarousel();
+        // Inicializar el carrusel cuando la vista esté lista solo si hay mensajes
+        if (this.hasMessages) {
+            this.initializeCarousel();
+        }
     }
 
     private initializeCarousel(): void {
@@ -76,11 +83,11 @@ export class AppFeedbackComponent implements OnInit, AfterViewInit {
             paragraphText: 'Mira las palabras de quienes lo amaron.'
         }
     ]
-    singleFeedbackItem: Content[] = [
-        
-    ]
+    singleFeedbackItem: Content[] = [];
+    hasMessages: boolean = false;
 
 }
+
 class sectionTitleContent {
     title : string;
     paragraphText : string;

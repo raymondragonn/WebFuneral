@@ -1,11 +1,5 @@
 
   
-  <div *ngIf="!loadingMensajes && mensajes.length === 0" class="empty-state">
-    <h4>Aún no hay recuerdos compartidos</h4>
-    <p>Los recuerdos de Jaime Hernandez aparecerán aquí cuando sean compartidos por familia y amigos.</p>
-  </div>iv class="formulario-content">
-
-  
   <section class="mensajes-section ptb-100">
     <div class="container">
       <div class="section-title">
@@ -37,7 +31,7 @@
       
       <!-- Mensaje cuando no hay mensajes -->
       <div *ngIf="!loadingMensajes && mensajes.length === 0" class="empty-state">
-        <div class="empty-icon">�</div>
+        <div class="empty-icon">💭</div>
         <h4>Aún no hay recuerdos compartidos</h4>
         <p>Los hermosos recuerdos de Jaime Hernandez aparecerán aquí cuando sean compartidos por familia y amigos.</p>
       </div>

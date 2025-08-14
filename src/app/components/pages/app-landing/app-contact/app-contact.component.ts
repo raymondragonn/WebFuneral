@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MensajeService, Mensaje} from 'src/app/services';
 
 @Component({
@@ -18,7 +19,11 @@ export class AppContactComponent implements OnInit {
     showSuccess = false;
     errorMessage = '';
 
-    constructor(private fb: FormBuilder,private mensajeService: MensajeService) { }
+    constructor(
+      private fb: FormBuilder,
+      private mensajeService: MensajeService,
+      private router: Router
+    ) { }
 
     ngOnInit(): void {
     }
@@ -43,19 +48,20 @@ export class AppContactComponent implements OnInit {
                 this.formulario.reset();
                 console.log('Mensaje enviado exitosamente:', response);
                 
-                // Ocultar mensaje de éxito después de 5 segundos
+                // Redirigir después de mostrar el mensaje de éxito por 2 segundos
                 setTimeout(() => {
                   this.showSuccess = false;
-                }, 5000);
-              } else {
-                this.errorMessage = response.message || 'Error al enviar el mensaje';
-              }
+                  this.router.navigate(['/recuerdos']);
+                }, 2000);
+                        } else {
+            this.errorMessage = 'No se ha podido enviar tu recuerdo en este momento.';
+          }
             },
-            error: (error) => {
-              this.isLoading = false;
-              this.errorMessage = error.message || 'Error de conexión. Inténtalo de nuevo.';
-              console.error('Error al enviar mensaje:', error);
-            }
+                    error: (error) => {
+          this.isLoading = false;
+          this.errorMessage = 'No se ha podido enviar tu recuerdo en este momento.';
+          console.error('Error al enviar mensaje:', error);
+        }
           });
         } else {
           console.log('Formulario no válido');
